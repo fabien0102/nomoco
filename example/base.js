@@ -25,4 +25,4 @@ async.eachSeries([1, 2, 3], function (item, callback) {
 */
 
 
-var a = require('./').init();
+var a = require('../')();
