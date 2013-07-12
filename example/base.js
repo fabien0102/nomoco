@@ -1,28 +1,6 @@
-/*
-var async = require('async');
-var err = {found: false};
-var timeOutId;
+var hexy = require('../')();
 
-console.log(err);
-async.eachSeries([1, 2, 3], function (item, callback) {
-    console.log(item);
-    timeOutId = setTimeout(function(){
-        console.log('callback');
-        err.found = true;
-        callback(err);
-    }, 500);
-    //clearTimeout(timeOutId);
-    //callback(null, true);
-}, function (found) {
-    console.log(found);
-    if (found) {
-        console.log('found !');
-    } else {
-        console.log('not found');
-    }
+hexy.on('ready', function(){
+  // Some instructions...
+  hexy.LF.ankle.position = 30;
 });
-
-*/
-
-
-var a = require('../')();
