@@ -2,15 +2,16 @@
   "author": "Fabien0102",
   "name": "NoMoCo",
   "description": "A node.js client for controlling Hexy of Arcbotics.",
-  "version": "0.0.1",
-  "homepage": "https://github.com/fabien0102/NoMoCo",
+  "version": "0.0.2",
+  "homepage": "https://github.com/fabien0102/nomoco",
   "repository": {
     "type": "git",
-    "url": "git://github.com/abien0102/NoMoCo.git"
+    "url": "git://github.com/abien0102/nomoco.git"
   },
   "main": "./index",
   "dependencies": {
-    "serialport": "~1"
+    "serialport": "~1",
+    "node-logging": "~0.1"
   },
   "engines": {
     "node": ">= 0.7.0"
