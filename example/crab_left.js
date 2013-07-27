@@ -13,8 +13,8 @@ hexy.on('ready', function(){
     
     // 2nd step
     setTimeout(function(){
-      hexy.globalOffset(Math.sin(theta) * s, -Math.cos(theta) * S, 0, 1);
-      hexy.globalOffset(-Math.sin(theta) * s, Math.cos(theta) * S, 0, 2);
+      hexy.globalOffset(Math.sin(theta) * s, -Math.cos(theta) * s, 0, 1);
+      hexy.globalOffset(-Math.sin(theta) * s, Math.cos(theta) * s, 0, 2);
     }, 200);
 
     // 3nd step
@@ -25,8 +25,8 @@ hexy.on('ready', function(){
 
     // 4nd step
     setTimeout(function(){
-      hexy.globalOffset(-Math.sin(theta) * s, Math.cos(theta) * S, 0, 1);
-      hexy.globalOffset(Math.sin(theta) * s, -Math.cos(theta) * S, 0, 2);
+      hexy.globalOffset(-Math.sin(theta) * s, Math.cos(theta) * s, 0, 1);
+      hexy.globalOffset(Math.sin(theta) * s, -Math.cos(theta) * s, 0, 2);
 
       next();
     }, 600);
