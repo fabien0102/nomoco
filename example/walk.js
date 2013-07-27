@@ -1,10 +1,10 @@
 var hexy = require('../')();
 var async = require('async');
 
-var deg = 25
-var midFloor = 30
-var hipSwing = 25
-var pause = 0.5
+var deg = 25;
+var midFloor = 30;
+var hipSwing = 25;
+var pause = 0.5;
 
 hexy.on('ready', function(){
   // Some instructions...
