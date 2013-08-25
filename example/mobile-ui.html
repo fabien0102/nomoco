@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Hexy</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head> 
+<body> 
+<div data-role="page" data-theme="b" >
+
+	<div data-role="header" data-theme="b" >
+		<h1>Hexy</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<form>
+		   <label for="head">Head</label>
+		   <input type="range" name="head" id="head" value="0" min="-90" max="90"  />
+		   <br />
+
+		   <div class="ui-grid-a">
+
+		   		<div class="ui-block-a">
+		   			<label>Left legs</label>
+	   				<input type="range" name="leg-LF" value="0" min="-70" max="70"  />
+	   				<input type="range" name="leg-LM" value="0" min="-70" max="70"  />
+	   				<input type="range" name="leg-LB" value="0" min="-70" max="70"  />
+		   		</div><!-- /ui-block-a -->
+
+		   		<div class="ui-block-b">
+		   			<label>Right legs</label>
+		   			<input type="range" name="leg-RF" value="0" min="-70" max="70"  />
+	   				<input type="range" name="leg-RM" value="0" min="-70" max="70"  />
+	   				<input type="range" name="leg-RB" value="0" min="-70" max="70"  />
+		   		</div><!-- /ui-block-b -->
+
+		   </div><!-- /ui-grid-a -->
+		   <br />
+		   <input type="button" id="killAll" value="Kill all" />
+		</form>	
+	</div><!-- /content -->
+	<div data-role="popup" id="hexyIsReady" class="ui-content">
+    	<p>Hexy is ready</p>
+	</div>
+</div><!-- /page -->
+<script src="socket.io/socket.io.js"></script>
+<script type="text/javascript">
+	var socket = io.connect();
+	$(document).bind('pageinit', function () {
+		// Hexy is ready
+		socket.on('hexyIsReady', function () {
+			$('#hexyIsReady').popup('open');
+		});
+
+		// Swipe events
+		$(window).on('swiperight', function (event) {
+			socket.emit('head', 'right');
+			$('#head').val(90);
+			$('#head').slider('refresh');
+
+		});
+		$(window).on('swipeleft', function (event) {
+			socket.emit('head', 'left');
+			$('#head').val(-90);
+			$('#head').slider('refresh');
+		});
+
+		// Kill all
+		$('#killAll').click(function(){
+			socket.emit('killAll');
+		});
+
+		// Sliders
+		$('input').on('slidestop', function (event) {
+			var input = event.target.name.split("-");
+			if (typeof(input[1]) == 'string') {
+				socket.emit(input[0], input[1], event.target.value);
+			} else {
+				socket.emit(input[0], event.target.value);
+			}
+		});
+		$(".ui-slider-input").hide();
+		$(".ui-slider-track").css('margin', '0px 5px 0px 5px');
+	});
+    /*window.ondevicemotion = function(event) {  
+        socket.emit('head', event.accelerationIncludingGravity.x);
+    }*/  
+</script>
+</body>
+</html>

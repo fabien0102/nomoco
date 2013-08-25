@@ -11,7 +11,8 @@
   "main": "./index",
   "dependencies": {
     "serialport": "~1",
-    "node-logging": "~0.1"
+    "node-logging": "~0.1",
+    "socket.io":  "~0.9"
   },
   "engines": {
     "node": ">= 0.7.0"
