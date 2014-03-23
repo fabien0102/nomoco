@@ -12,9 +12,15 @@
   "dependencies": {
     "serialport": "~1",
     "node-logging": "~0.1",
-    "socket.io":  "~0.9"
+    "socket.io": "~0.9"
   },
   "engines": {
     "node": ">= 0.7.0"
+  },
+  "devDependencies": {
+    "should": "~3.2.0-beta1"
+  },
+  "scripts": {
+    "test": "mocha -R nyan -u tdd"
   }
 }
