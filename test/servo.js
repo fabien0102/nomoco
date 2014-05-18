@@ -41,21 +41,21 @@ describe('Servo', function(){
 	describe('kill', function(){
 		it('should send the right commande', function(){
 			servo.kill();
-			(com.read()).should.equal("#42L")
+			(com.read()).should.equal("#42L");
 		});
 	});
 
 	describe('killAll', function(){
 		it('should send the right commande', function(){
 			servo.killAll();
-			(com.read()).should.equal("K")
+			(com.read()).should.equal("K");
 		});
 	});
 
 	describe('senterAll', function(){
 		it('should send the right commande', function(){
 			servo.centerAll();
-			(com.read()).should.equal("C")
+			(com.read()).should.equal("C");
 		});
 	});
 });
