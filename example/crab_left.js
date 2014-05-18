@@ -10,7 +10,7 @@ hexy.on('ready', function(){
     // 1st step
     hexy.globalOffset(0, 0, -14, 1);
     hexy.globalOffset(0, 0, 0, 2);
-    
+
     // 2nd step
     setTimeout(function(){
       hexy.globalOffset(Math.sin(theta) * s, -Math.cos(theta) * s, 0, 1);
@@ -30,8 +30,8 @@ hexy.on('ready', function(){
 
       next();
     }, 600);
-  
+
   }, function(){
     console.log('Finish !!!');
-  })
+  });
 });

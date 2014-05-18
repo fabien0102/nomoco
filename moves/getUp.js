@@ -39,7 +39,7 @@ module.exports = function standUp (hexy, async) {
     }
 
     ],function(){
-      hexy.stop();
+      hexy.moves.reset();
     }
   );
 };
